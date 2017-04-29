@@ -1,0 +1,37 @@
+
+`devd` : Install, Start and Stop 'devd' Instances from R
+
+The 'devd' <https://github.com/cortesi/devd> utility is "a web daemon for developers". It is written in the 'Go' programming language and distributed in both source and statically-linked, zero-dependency binary form. It's more lightweight than 'node.js' or 'Python' equivalents and designed to support front-end development tasks. It is a good companion for developing 'htmlwidgets' or other web-content.
+
+The intent of this package is meant to make it dirt simple to fire up a simple web server in the backround along with a bona-fide system web browser from R (i.e. no need to even use the RStudio new built-in terminal) and also get access to the access log from it.
+
+A primary use-case is to use R to generate data for interactive D3 visualizations (not the `htmlwidget` kind, but one-off, special-purpose ones) and also use RStudio for editing the HTML/CSS/JS resources (RStudio R Projects are great ways to keep web projects organized).
+
+It's also handy when doing something like the above and also want to test it with someting like [fiery](https://github.com/thomasp85/fiery) as a back-end API.
+
+The following functions are implemented:
+
+-   `devd_log`: Retrieve current "access log" buffer
+-   `devd_start`: Start up a devd process
+-   `devd_stop`: Stop a running devd process
+-   `install_devd`: Install devd server for your platform
+-   `remove_devd`: Remove all sysetm traces of `devd` installed/created by this package
+
+### Installation / Usage
+
+``` r
+devtools::install_github("r-pkgs/processx")
+devtools::install_github("hrbrmstr/devd")
+
+library(devd)
+
+install_devd() # only need to do this once
+
+dd <- devd_start()
+
+devd_log(dd) # see the access log since last time `devd_log(dd)` was called
+
+devd_stop(dd)
+
+remove_devd() # if you want to get rid of anything the package installed/created
+```

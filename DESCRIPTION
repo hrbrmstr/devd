@@ -1,0 +1,32 @@
+Package: devd
+Type: Package
+Title: Install, Start and Stop 'devd' Instances
+Version: 0.1.0
+Date: 2017-04-28
+Authors@R: c(
+    person('Bob', 'Rudis', email = 'bob@rud.is', role = c('aut', 'cre')),
+    person('Aldo', 'Cortesi', comment = 'devd author', role = c('aut'))
+    )
+Maintainer: Bob Rudis <bob@rud.is>
+Description: The 'devd' <https://github.com/cortesi/devd> utility is "a web daemon for 
+    developers". It is written in the 'Go' programming language and distributed in both
+    source and statically-linked, zero-dependency binary form. It's more lightweight
+    than 'node.js' or 'Python' equivalents and designed to support front-end development
+    tasks. It is a good companion for developing 'htmlwidgets' or other web-content.
+URL: https://github.com/hrbrmstr/devd
+BugReports: https://github.com/hrbrmstr/devd/issues
+License: AGPL
+Suggests:
+    testthat,
+    covr
+Depends:
+    R (>= 3.2.0)
+Imports:
+    purrr,
+    httr,
+    jsonlite,
+    rappdirs,
+    utils,
+    uuid
+Remotes: 'r-pkgs/processx'
+RoxygenNote: 6.0.1
